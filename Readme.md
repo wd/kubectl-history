@@ -1,3 +1,6 @@
+## Install
+Clone the repo and run `make release`, it will create `kubectl-v` command under `~/.local/bin/`. Add that folder to your PATH.
+
 ## Usages
 
 
@@ -19,6 +22,7 @@ Flags:
   -v, --v Level             number for the log level verbosity
 
 Use "kubectl-v [command] --help" for more information about a command.
+
 ```
 
 ### list command
@@ -46,9 +50,9 @@ Add `-d` to show more details: `k v list -n sandbox deploy dong-web -d`
 ### diff command
 
 The command below will get the same result
-- `k v diff -n sandbox deploy dong-web`
-- `k v diff -n sandbox deploy dong-web 1`
-- `k v diff -n sandbox deploy dong-web 1 2`
+- `k v diff -n sandbox deploy dong-web` show difference between the latest two versions
+- `k v diff -n sandbox deploy dong-web 1` show difference between the version 1 and the latest version
+- `k v diff -n sandbox deploy dong-web 1 2` show different between version 1 and 2
 
 
 ``` diff
