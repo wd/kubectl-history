@@ -1,17 +1,15 @@
 package cmd
 
 import (
-	"os"
-
-	"fmt"
-
 	"flag"
+	"fmt"
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
 	"k8s.io/cli-runtime/pkg/genericclioptions"
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/tools/clientcmd"
 	"k8s.io/klog/v2"
+	"os"
 )
 
 const (
