@@ -1,5 +1,5 @@
 ## Install
-Download the binary from release page, and put it in your PATH. You may need to allow it to execute from the `settings->Security & Privacity` dialog.
+Download the binary from release page, and put it in your PATH. You may need to allow it to be executed from the `settings->Security & Privacity` dialog.
 
 ## Usages
 
