@@ -1,5 +1,5 @@
 ## Install
-Clone the repo and run `make release`, it will create `kubectl-v` command under `~/.local/bin/`. Add that folder to your PATH.
+Download the binary from release page, and put it in your PATH. You may need to allow it to execute from the `settings->Security & Privacity` dialog.
 
 ## Usages
 

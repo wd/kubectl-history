@@ -17,6 +17,8 @@ const (
 )
 
 var (
+	Version = "git-head"
+
 	cf           *genericclioptions.ConfigFlags
 	clientConfig clientcmd.ClientConfig
 	clientSet    *kubernetes.Clientset
@@ -33,7 +35,7 @@ var (
 
 func init() {
 	klog.InitFlags(nil)
-
+	rootCmd.Version = Version
 	flags := pflag.NewFlagSet("kubectl-v", pflag.ExitOnError)
 	flags.AddGoFlagSet(flag.CommandLine)
 	pflag.CommandLine = flags
