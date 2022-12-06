@@ -9,7 +9,8 @@ jobs:
       - id: commit
         uses: pr-mpt/actions-commit-hash@v2
       - name: Set APP_VERSION env
-        run: echo APP_VERSION=${{github.ref_name}}-${{steps.commit.outputs.short}} >> ${GITHUB_ENV}
+        id: set-app-version
+        run: echo APP_VERSION=${{github.ref_name}}-${{steps.commit.outputs.short}} >> $GITHUB_OUTPUT
 
   release:
     name: make release
@@ -26,4 +27,4 @@ jobs:
         goos: ${{ matrix.goos }}
         goarch: ${{ matrix.goarch }}
         binary_name: "kubectl-v"
-        ldflags: "github.com/wd/kubectl-v/cmd.Version=${{env.APP_VERSION}}"
+        ldflags: "github.com/wd/kubectl-v/cmd.Version=${{steps.set-app-version.outputs.APP_VERSION}}"
