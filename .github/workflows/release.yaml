@@ -8,9 +8,8 @@ jobs:
     steps:
       - id: commit
         uses: pr-mpt/actions-commit-hash@v2
-        with:
-          commit: "${{ github.event.workflow_run.head_sha }}"
-          prefix: "sha-"
+      - name: Set APP_VERSION env
+        run: echo APP_VERSION=${{github.ref_name}}-${{steps.commit.outputs.short}} >> ${GITHUB_ENV}
 
   release:
     name: make release
