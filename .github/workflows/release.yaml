@@ -8,9 +8,12 @@ jobs:
     steps:
       - id: commit
         uses: pr-mpt/actions-commit-hash@v2
+    outputs:
+      short-commit: ${{steps.commit.outputs.short}}
 
   release:
     name: make release
+    needs: get-tags
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -27,4 +30,4 @@ jobs:
         goos: ${{ matrix.goos }}
         goarch: ${{ matrix.goarch }}
         binary_name: "kubectl-v"
-        ldflags: "github.com/wd/kubectl-v/cmd.Version=${{github.ref_name}}-${{steps.commit.outputs.short}}"
+        ldflags: "github.com/wd/kubectl-v/cmd.Version=${{github.ref_name}}-${{needs.get-tags.outputs.short-commit}}"
