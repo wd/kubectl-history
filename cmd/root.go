@@ -57,9 +57,9 @@ func init() {
 	rootCmd.SetOutput(streams.ErrOut)
 	flags.AddFlagSet(rootCmd.PersistentFlags())
 
-	flags.StringVarP(cf.KubeConfig, "kubeconfig", "f", "", "If present, path to the kubeconfig file to be used for Cli requests.")
-	flags.StringVarP(cf.Context, "context", "c", "c", "If present, the context scope for the Cli request")
-	flags.StringVarP(cf.Namespace, "namespace", "n", "", "If present, the namespace scope for this Cli request")
+	flags.StringVarP(cf.KubeConfig, "kubeconfig", "f", "", "path to the kubeconfig file to be used for the requests")
+	flags.StringVarP(cf.Context, "context", "c", "", "the context scope for the request")
+	flags.StringVarP(cf.Namespace, "namespace", "n", "", "the namespace scope for the request")
 }
 
 func getClientSet() (*kubernetes.Clientset, error) {

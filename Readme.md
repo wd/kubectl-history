@@ -16,9 +16,10 @@ Available Commands:
   list        List all the reversions of the resource
 
 Flags:
+  -c, --context string      the context scope for the request
   -h, --help                help for kubectl-history
-  -c, --kubeconfig string   Path to the kubeconfig file to be used for Cli requests.
-  -n, --namespace string    If present, the namespace scope for this Cli request
+  -f, --kubeconfig string   path to the kubeconfig file to be used for the requests
+  -n, --namespace string    the namespace scope for the request
   -v, --v Level             number for the log level verbosity
       --version             version for kubectl-history
 
