@@ -10,6 +10,7 @@ import (
 	"k8s.io/client-go/tools/clientcmd"
 	"k8s.io/klog/v2"
 	"os"
+	_ "k8s.io/client-go/plugin/pkg/client/auth"
 )
 
 const (
