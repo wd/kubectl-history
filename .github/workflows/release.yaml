@@ -35,4 +35,5 @@ jobs:
     name: Update new version in krew-index
     needs: release
     steps:
-     - uses: rajatjindal/krew-release-bot@v0.0.39
+    - uses: actions/checkout@v3
+    - uses: rajatjindal/krew-release-bot@v0.0.39
