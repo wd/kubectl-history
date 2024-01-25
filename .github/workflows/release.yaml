@@ -30,5 +30,9 @@ jobs:
         binary_name: "kubectl-history"
         ldflags: "-X github.com/wd/kubectl-history/cmd.Version=${{github.ref_name}}-${{needs.get-tags.outputs.short-commit}}"
 
-    - name: Update new version in krew-index
-      uses: rajatjindal/krew-release-bot@v0.0.39
+  update-krew:
+    runs-on: ubuntu-latest
+    name: Update new version in krew-index
+    needs: release
+    steps:
+     - uses: rajatjindal/krew-release-bot@v0.0.39
