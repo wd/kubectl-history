@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/wd/kubectl-v/cmd"
+	"github.com/wd/kubectl-history/cmd"
 )
 
 func main() {

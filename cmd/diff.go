@@ -3,7 +3,7 @@ package cmd
 import (
 	"fmt"
 	"github.com/spf13/cobra"
-	"github.com/wd/kubectl-v/pkg/viewer"
+	"github.com/wd/kubectl-history/pkg/viewer"
 	"k8s.io/klog/v2"
 	"strconv"
 )

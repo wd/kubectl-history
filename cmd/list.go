@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/spf13/cobra"
-	"github.com/wd/kubectl-v/pkg/viewer"
+	"github.com/wd/kubectl-history/pkg/viewer"
 
 	"github.com/jedib0t/go-pretty/v6/table"
 	"k8s.io/klog/v2"
