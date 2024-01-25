@@ -29,6 +29,7 @@ jobs:
         goarch: ${{ matrix.goarch }}
         binary_name: "kubectl-history"
         ldflags: "-X github.com/wd/kubectl-history/cmd.Version=${{github.ref_name}}-${{needs.get-tags.outputs.short-commit}}"
+        extra_files: LICENSE
 
   update-krew:
     runs-on: ubuntu-latest
