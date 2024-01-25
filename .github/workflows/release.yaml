@@ -29,5 +29,5 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         goos: ${{ matrix.goos }}
         goarch: ${{ matrix.goarch }}
-        binary_name: "kubectl-v"
-        ldflags: "-X github.com/wd/kubectl-v/cmd.Version=${{github.ref_name}}-${{needs.get-tags.outputs.short-commit}}"
+        binary_name: "kubectl-history"
+        ldflags: "-X github.com/wd/kubectl-history/cmd.Version=${{github.ref_name}}-${{needs.get-tags.outputs.short-commit}}"

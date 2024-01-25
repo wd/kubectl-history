@@ -55,7 +55,7 @@ func resourceDiff[P *appsv1.ControllerRevision | *appsv1.ReplicaSet](
 	} else if newRev == math.MaxInt {
 		return nil, fmt.Errorf("New reversion %d not found", origNewRev)
 	} else if oldRev >= newRev {
-		return nil, fmt.Errorf("Old reversion %d(%d) should less than new reversion %d(%d)", oldRev, origOldRev, newRev, origNewRev)
+		return nil, fmt.Errorf("Old reversion %d(%d) should small than new reversion %d(%d)", oldRev, origOldRev, newRev, origNewRev)
 	}
 
 	oldYaml := getDiffString(oldRs)

@@ -25,7 +25,7 @@ var (
 	namespace    string
 
 	rootCmd = &cobra.Command{
-		Use:   "kubectl-v",
+		Use:   "kubectl-history",
 		Short: "List and diff versions of deployment/daemonset/statefulset",
 		CompletionOptions: cobra.CompletionOptions{
 			DisableDefaultCmd: true,
@@ -36,11 +36,11 @@ var (
 func init() {
 	klog.InitFlags(nil)
 	rootCmd.Version = Version
-	flags := pflag.NewFlagSet("kubectl-v", pflag.ExitOnError)
+	flags := pflag.NewFlagSet("kubectl-history", pflag.ExitOnError)
 	flags.AddGoFlagSet(flag.CommandLine)
 	pflag.CommandLine = flags
 
-	// hide all glog flags except for -v
+	// hide all glog flags except `-v`
 	flags.VisitAll(func(f *pflag.Flag) {
 		if f.Name != "v" {
 			flags.Lookup(f.Name).Hidden = true
@@ -56,8 +56,8 @@ func init() {
 	rootCmd.SetOutput(streams.ErrOut)
 	flags.AddFlagSet(rootCmd.PersistentFlags())
 
-	flags.StringVar(cf.KubeConfig, "kubeconfig", "", "Path to the kubeconfig file to use for CLI requests.")
-	flags.StringVarP(cf.Namespace, "namespace", "n", "", "If present, the namespace scope for this CLI request")
+	flags.StringVarP(cf.KubeConfig, "kubeconfig", "c", "", "Path to the kubeconfig file to be used for Cli requests.")
+	flags.StringVarP(cf.Namespace, "namespace", "n", "", "If present, the namespace scope for this Cli request")
 }
 
 func getClientSet() (*kubernetes.Clientset, error) {

@@ -20,7 +20,7 @@ type DSViewer struct {
 	selector  labels.Selector
 }
 
-func NewDSViewer(clientset *kubernetes.Clientset, name string, controller string, namespace string) (KindViewer, error) {
+func NewDSViewer(clientset *kubernetes.Clientset, name string, namespace string) (KindViewer, error) {
 	ds, err := clientset.AppsV1().DaemonSets(namespace).Get(context.TODO(), name, metav1.GetOptions{})
 	if err != nil {
 		return nil, fmt.Errorf("Get DS error: %s", err)

@@ -21,7 +21,7 @@ type StsViewer struct {
 	selector    labels.Selector
 }
 
-func NewStsViewer(clientset *kubernetes.Clientset, name string, controller string, namespace string) (KindViewer, error) {
+func NewStsViewer(clientset *kubernetes.Clientset, name string, namespace string) (KindViewer, error) {
 	sts, err := clientset.AppsV1().StatefulSets(namespace).Get(context.TODO(), name, metav1.GetOptions{})
 	if err != nil {
 		return nil, fmt.Errorf("Get rs error: %s", err)

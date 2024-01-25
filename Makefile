@@ -1,2 +1,2 @@
 release:
-	go build -o ~/.local/bin/kubectl-v main.go
+	go build -o ~/.local/bin/kubectl-history main.go

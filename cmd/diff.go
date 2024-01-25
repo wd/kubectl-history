@@ -11,7 +11,7 @@ import (
 func init() {
 	cmd := &cobra.Command{
 		Use:   fmt.Sprintf("diff %s NAME [old] [new]", SupportedResources),
-		Short: "Show diff from different reversions of the resource",
+		Short: "Show a diff for different reversions of the resource",
 		Args: func(cmd *cobra.Command, args []string) error {
 			if len(args) < 2 {
 				return fmt.Errorf("Need resource type and resource name\n\n%s", cmd.UsageString())
@@ -59,9 +59,9 @@ func runDiff(cmd *cobra.Command, args []string) error {
 	case "deploy", "deployment":
 		resourceViewer, err = viewer.NewDeployViewer(clientSet, name, namespace)
 	case "daemonset", "ds":
-		resourceViewer, err = viewer.NewDSViewer(clientSet, name, "ds", namespace)
+		resourceViewer, err = viewer.NewDSViewer(clientSet, name, namespace)
 	case "statefulset", "sts":
-		resourceViewer, err = viewer.NewStsViewer(clientSet, name, "sts", namespace)
+		resourceViewer, err = viewer.NewStsViewer(clientSet, name, namespace)
 	default:
 		return fmt.Errorf("Resource type %s is not supported.", kind)
 	}

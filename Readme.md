@@ -5,29 +5,30 @@ Download the binary from release page, and put it in your PATH. You may need to 
 
 
 ``` text
-List and diff reversions of deployment/daemonset/statefulset
+List and diff versions of deployment/daemonset/statefulset
 
 Usage:
-  kubectl-v [command]
+  kubectl-history [command]
 
 Available Commands:
-  diff        Show diff from different reversions of the resource
+  diff        Show a diff for different reversions of the resource
   help        Help about any command
-  list        list all the reversions of the resource
+  list        List all the reversions of the resource
 
 Flags:
-  -h, --help                help for kubectl-v
-      --kubeconfig string   Path to the kubeconfig file to use for CLI requests.
-  -n, --namespace string    If present, the namespace scope for this CLI request
+  -h, --help                help for kubectl-history
+  -c, --kubeconfig string   Path to the kubeconfig file to be used for Cli requests.
+  -n, --namespace string    If present, the namespace scope for this Cli request
   -v, --v Level             number for the log level verbosity
+      --version             version for kubectl-history
 
-Use "kubectl-v [command] --help" for more information about a command.
+Use "kubectl-history [command] --help" for more information about a command.
 
 ```
 
 ### list command
 
-Use list command to list all the exit reversions: `k v list -n sandbox deploy dong-web`
+Use list command to list all the exit reversions: `k history list -n sandbox deploy dong-web`
 
 ``` text
  # | CREATE TIME                   | NAME                | DESIRED | AVAILIABE | READY
@@ -36,7 +37,7 @@ Use list command to list all the exit reversions: `k v list -n sandbox deploy do
  1 | 2022-07-13 17:24:15 +0800 CST | dong-web-78b7f7cbb  |       0 |         0 |     0
 ```
 
-Add `-d` to show more details: `k v list -n sandbox deploy dong-web -d`
+Add `-d` to show more details: `k history list -n sandbox deploy dong-web -d`
 
 ``` text
  # | CREATE TIME                   | NAME                        | DESIRED | AVAILIABE | READY
@@ -50,9 +51,9 @@ Add `-d` to show more details: `k v list -n sandbox deploy dong-web -d`
 ### diff command
 
 The command below will get the same result
-- `k v diff -n sandbox deploy dong-web` show difference between the latest two versions
-- `k v diff -n sandbox deploy dong-web 1` show difference between the version 1 and the latest version
-- `k v diff -n sandbox deploy dong-web 1 2` show different between version 1 and 2
+- `k history diff -n sandbox deploy dong-web` show difference between the latest two versions
+- `k history diff -n sandbox deploy dong-web 1` show difference between the version 1 and the latest version
+- `k history diff -n sandbox deploy dong-web 1 2` show different between version 1 and 2
 
 
 ``` diff
