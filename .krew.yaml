@@ -1,0 +1,30 @@
+apiVersion: krew.googlecontainertools.github.com/v1alpha2
+kind: Plugin
+metadata:
+  name: history
+spec:
+  version: {{ .TagName }}
+  homepage: https://github.com/wd/kubectl-history
+  shortDescription: Plugin to List and diff history reversions of deployment/daemonset/statefulset
+  description: |
+    This plugin allows viewing history reversions of resources. And show diff
+    for them.
+  platforms:
+    - selector:
+        matchLabels:
+          os: linux
+          arch: amd64
+      {{addURIAndSha "https://github.com/wd/kubectl-history/releases/download/{{ .TagName }}/kubectl-history-{{ .TagName }}-linux-amd64.tar.gz" .TagName }}
+      bin: kubectl-history
+    - selector:
+        matchLabels:
+          os: darwin
+          arch: arm64
+      {{addURIAndSha "https://github.com/wd/kubectl-history/releases/download/{{ .TagName }}/kubectl-history-{{ .TagName }}-darwin-arm64.tar.gz" .TagName }}
+      bin: kubectl-history
+    - selector:
+        matchLabels:
+          os: darwin
+          arch: amd64
+      {{addURIAndSha "https://github.com/wd/kubectl-history/releases/download/{{ .TagName }}/kubectl-history-{{ .TagName }}-darwin-amd64.tar.gz" .TagName }}
+      bin: kubectl-history
