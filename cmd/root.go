@@ -56,7 +56,8 @@ func init() {
 	rootCmd.SetOutput(streams.ErrOut)
 	flags.AddFlagSet(rootCmd.PersistentFlags())
 
-	flags.StringVarP(cf.KubeConfig, "kubeconfig", "c", "", "Path to the kubeconfig file to be used for Cli requests.")
+	flags.StringVarP(cf.KubeConfig, "kubeconfig", "f", "", "If present, path to the kubeconfig file to be used for Cli requests.")
+	flags.StringVarP(cf.Context, "context", "c", "c", "If present, the context scope for the Cli request")
 	flags.StringVarP(cf.Namespace, "namespace", "n", "", "If present, the namespace scope for this Cli request")
 }
 
