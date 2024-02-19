@@ -11,7 +11,7 @@ import (
 func init() {
 	cmd := &cobra.Command{
 		Use:   fmt.Sprintf("diff %s NAME [old] [new]", SupportedResources),
-		Short: "Show a diff for different reversions of the resource",
+		Short: "Show a diff for different revisions of the resource",
 		Args: func(cmd *cobra.Command, args []string) error {
 			if len(args) < 2 {
 				return fmt.Errorf("Need resource type and resource name\n\n%s", cmd.UsageString())
@@ -40,14 +40,14 @@ func runDiff(cmd *cobra.Command, args []string) error {
 	if len(args) >= 3 {
 		oldRev, err = strconv.ParseInt(args[2], 10, 64)
 		if err != nil {
-			return fmt.Errorf("Parse old reversion faild: %s", err)
+			return fmt.Errorf("Parse old revision faild: %s", err)
 		}
 	}
 	if len(args) >= 4 {
 		newRev, err = strconv.ParseInt(args[3], 10, 64)
 
 		if err != nil {
-			return fmt.Errorf("Parse new reversion faild: %s", err)
+			return fmt.Errorf("Parse new revision faild: %s", err)
 		}
 	}
 	if oldRev == newRev {
