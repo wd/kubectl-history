@@ -15,7 +15,7 @@ var isShowDetail bool
 func init() {
 	cmd := &cobra.Command{
 		Use:   fmt.Sprintf("list %s NAME", SupportedResources),
-		Short: "List all the reversions of the resource",
+		Short: "List all the revisions of the resource",
 		Args: func(cmd *cobra.Command, args []string) error {
 			if len(args) < 2 {
 				return fmt.Errorf("Need resource type and resource name\n\n%s", cmd.UsageString())

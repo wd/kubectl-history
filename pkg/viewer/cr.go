@@ -26,7 +26,7 @@ func listControllerRevison(clientset kubernetes.Clientset, owner metav1.Object, 
 	}
 	crList, err := clientset.AppsV1().ControllerRevisions(owner.GetNamespace()).List(context.TODO(), options)
 	if err != nil {
-		return nil, fmt.Errorf("Get controller reversion error: %s", err)
+		return nil, fmt.Errorf("Get controller revision error: %s", err)
 	}
 
 	var resList []*appsv1.ControllerRevision

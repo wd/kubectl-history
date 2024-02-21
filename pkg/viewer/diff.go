@@ -2,7 +2,6 @@ package viewer
 
 import (
 	"fmt"
-
 	"math"
 
 	"github.com/hexops/gotextdiff"
@@ -51,11 +50,11 @@ func resourceDiff[P *appsv1.ControllerRevision | *appsv1.ReplicaSet](
 		}
 	}
 	if oldRev == math.MaxInt {
-		return nil, fmt.Errorf("Old reversion %d not found", origOldRev)
+		return nil, fmt.Errorf("Old revision %d not found", origOldRev)
 	} else if newRev == math.MaxInt {
-		return nil, fmt.Errorf("New reversion %d not found", origNewRev)
+		return nil, fmt.Errorf("New revision %d not found", origNewRev)
 	} else if oldRev >= newRev {
-		return nil, fmt.Errorf("Old reversion %d(%d) should small than new reversion %d(%d)", oldRev, origOldRev, newRev, origNewRev)
+		return nil, fmt.Errorf("Old revision %d(%d) should be smaller than the new revision %d(%d)", oldRev, origOldRev, newRev, origNewRev)
 	}
 
 	oldYaml := getDiffString(oldRs)
