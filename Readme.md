@@ -1,5 +1,12 @@
 ## Install
-Download the binary from release page, and put it in your PATH. You may need to allow it to be executed from the `settings->Security & Privacy` dialog.
+
+You can use `krew` to install the plugin. 
+
+``` shell
+$ kubectl krew install history
+```
+
+You also can download the binary from release page, and put it in your PATH. You may need to allow it to be executed from the `settings->Security & Privacy` dialog.
 
 ## Usages
 
